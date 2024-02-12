@@ -63,22 +63,23 @@ let renderBlock = (block) => {
         </div>
         `;
     	document.body.insertAdjacentHTML('beforeend', imageItem);
-	
-		//   const imageUrl = block.image.original.url;
+	}
+
+	//   const imageUrl = block.image.original.url;
 		//   const imageElement = document.createElement('img');
 		//   imageElement.src = imageUrl;
 		//   document.body.appendChild(imageElement);
-	}
+
 
 	// Text!
 	else if (block.class == 'Text') {
 		// …up to you!
     let textItem =
         `
-        <div>
+        <li>
             <p><em></em></p>
             <div>${block.content_html}</div>
-        </div>
+        </li>
         `;
 
    		document.body.insertAdjacentHTML('beforeend', textItem);
@@ -95,7 +96,7 @@ let renderBlock = (block) => {
 				`
 				<li>
 					<p><em>Video</em></p>
-					<video controls src="${ block.attachment.url}"></video>
+					<video controls src="${block.attachment.url}"></video>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -108,10 +109,17 @@ let renderBlock = (block) => {
 			// …up to you!
 				let pdfItem =
 					`
-					<div>
+					<li>
 						<p><em></em></p>
-						<a href="${block.attachment.url}" target="_blank">View PDF</a>
-					</div>
+						<picture>
+                    	<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+                   		<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+                    	<img src="${ block.image.original.url }">
+               			</picture>
+                		<h3>${ block.title }</h3>
+               			${ block.description_html }
+						<p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
+					</li>
 					`;
 				document.body.insertAdjacentHTML('beforeend', pdfItem);
 		}
