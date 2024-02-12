@@ -59,7 +59,7 @@ let renderBlock = (block) => {
 		let imageItem =
         `
         <div>
-            <p><em>Image</em></p>
+            // <p><em>Image</em></p>
             <img src="${block.image.original.url}" alt="Image">
         </div>
         `;
