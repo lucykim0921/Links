@@ -55,10 +55,20 @@ let renderBlock = (block) => {
 	// Images!
 	else if (block.class == 'Image') {
 		// …up to you!
-		  const imageUrl = block.image.original.url;
-		  const imageElement = document.createElement('img');
-		  imageElement.src = imageUrl;
-		  document.body.appendChild(imageElement);
+
+		let imageItem =
+        `
+        <div>
+            <p><em>Image</em></p>
+            <img src="${block.image.original.url}" alt="Image">
+        </div>
+        `;
+    	document.body.insertAdjacentHTML('beforeend', imageItem);
+	
+		//   const imageUrl = block.image.original.url;
+		//   const imageElement = document.createElement('img');
+		//   imageElement.src = imageUrl;
+		//   document.body.appendChild(imageElement);
 	}
 
 	// Text!
