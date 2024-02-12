@@ -55,11 +55,10 @@ let renderBlock = (block) => {
 	// Images!
 	else if (block.class == 'Image') {
 		// …up to you!
-
 		let imageItem =
         `
         <div>
-            // <p><em>Image</em></p>
+            <p><em></em></p>
             <img src="${block.image.original.url}" alt="Image">
         </div>
         `;
@@ -77,7 +76,7 @@ let renderBlock = (block) => {
     let textItem =
         `
         <div>
-            <p><em>Text</em></p>
+            <p><em></em></p>
             <div>${block.content_html}</div>
         </div>
         `;
@@ -96,7 +95,7 @@ let renderBlock = (block) => {
 				`
 				<li>
 					<p><em>Video</em></p>
-					<video controls src="${ block.attachment.url }"></video>
+					<video controls src="${ block.attachment.url}"></video>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -107,6 +106,14 @@ let renderBlock = (block) => {
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
 			// …up to you!
+				let pdfItem =
+					`
+					<div>
+						<p><em></em></p>
+						<a href="${block.attachment.url}" target="_blank">View PDF</a>
+					</div>
+					`;
+				document.body.insertAdjacentHTML('beforeend', pdfItem);
 		}
 
 		// Uploaded audio!
