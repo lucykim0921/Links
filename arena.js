@@ -55,6 +55,10 @@ let renderBlock = (block) => {
 	// Images!
 	else if (block.class == 'Image') {
 		// …up to you!
+		  const imageUrl = block.image.original.url;
+		  const imageElement = document.createElement('img');
+		  imageElement.src = imageUrl;
+		  document.body.appendChild(imageElement);
 	}
 
 	// Text!
