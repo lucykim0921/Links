@@ -64,6 +64,15 @@ let renderBlock = (block) => {
 	// Text!
 	else if (block.class == 'Text') {
 		// …up to you!
+    let textItem =
+        `
+        <div>
+            <p><em>Text</em></p>
+            <div>${block.content_html}</div>
+        </div>
+        `;
+
+   		document.body.insertAdjacentHTML('beforeend', textItem);
 	}
 
 	// Uploaded (not linked) media…
