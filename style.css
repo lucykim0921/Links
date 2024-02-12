@@ -2,12 +2,12 @@ body {
 	--spacing: 2em;
     background-color: #e8ddcc;
 	/* font-family: monospace; */
-	padding: 100px;
+	padding: 50px;
 }
 
 body, header, section, ul, li, footer, address {
 	display: grid;
-	gap: 100px;
+	gap: 30px;
 }
 
 main { max-width: 600px }
