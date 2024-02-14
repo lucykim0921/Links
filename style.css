@@ -11,7 +11,7 @@ body, header, section, ul, li, footer, address {
 }
 
 main { max-width: 600px }
-a { color: blue; }
+a { color: brown; }
 em { font-style: italic; }
 strong { font-weight: bold; }
 p { max-width: 50ch; }
@@ -22,10 +22,13 @@ font-weight: bold;
 }
 
 #channel-blocks {
-    display: flex; 
-    flex-wrap: wrap; 
+    display: grid; 
+    /* flex-wrap: wrap;  */
+    grid-template-columns: repeat(2, 1fr);
 }
 
 #channel-blocks > li {
-    flex: 0 0 calc(33.33% - 20px); 
-    margin: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* max-width: none; */
+}
