@@ -20,3 +20,12 @@ p { max-width: 50ch; }
 font-size: 50px;
 font-weight: bold;
 }
+
+#channel-blocks {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+#channel-blocks > li {
+    flex: 0 0 calc(33.33% - 20px); 
+    margin: 10px;
