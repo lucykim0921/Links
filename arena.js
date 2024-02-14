@@ -38,7 +38,7 @@ let renderBlock = (block) => {
 		let linkItem =
 			`
 			<li>
-				<p><em>Link</em></p>
+				<p><em></em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
@@ -94,7 +94,7 @@ let renderBlock = (block) => {
 			let videoItem =
 				`
 				<li>
-					<p><em>Video</em></p>
+					<p><em></em></p>
 					<video controls src="${block.attachment.url}"></video>
 				</li>
 				`
@@ -129,7 +129,7 @@ let renderBlock = (block) => {
 			let audioItem =
 				`
 				<li>
-					<p><em>Audio</em></p>
+					<p><em></em></p>
 					<audio controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -148,7 +148,7 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 				`
 				<li>
-					<p><em>Linked Video</em></p>
+					<p><em></em></p>
 					${ block.embed.html }
 				</li>
 				`
