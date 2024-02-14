@@ -1,6 +1,7 @@
 body {
 	--spacing: 2em;
     background-color: #e8ddcc;
+    background-position: top;
 	/* font-family: monospace; */
 	padding: 50px;
 }
