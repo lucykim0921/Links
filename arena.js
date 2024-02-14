@@ -120,7 +120,7 @@ let renderBlock = (block) => {
 						<p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
 					</li>
 					`;
-				document.body.insertAdjacentHTML('beforeend', pdfItem);
+					channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
 		}
 
 		// Uploaded audio!
