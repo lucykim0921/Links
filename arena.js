@@ -62,7 +62,7 @@ let renderBlock = (block) => {
             <img src="${block.image.original.url}" alt="Image">
         </div>
         `;
-    	document.body.insertAdjacentHTML('beforeend', imageItem);
+    	channelBlocks.insertAdjacentHTML('beforeend', imageItem);
 	}
 
 	//   const imageUrl = block.image.original.url;
@@ -81,8 +81,7 @@ let renderBlock = (block) => {
             <div>${block.content_html}</div>
         </li>
         `;
-
-   		document.body.insertAdjacentHTML('beforeend', textItem);
+		channelBlocks.insertAdjacentHTML('beforeend', textItem);
 	}
 
 	// Uploaded (not linked) media…
