@@ -101,7 +101,7 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li>
+				<li class="block-video">
 					<p><em></em></p>
 					<video controls src="${block.attachment.url}"></video>
 				</li>
@@ -116,7 +116,7 @@ let renderBlock = (block) => {
 			// …up to you!
 				let pdfItem =
 					`
-					<li>
+					<li class="block-pdf">
 						<p><em></em></p>
 						<picture>
                     	<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
@@ -155,7 +155,7 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-				<li>
+				<li class="block-linked-video">
 					<p><em></em></p>
 					${ block.embed.html }
 				</li>
