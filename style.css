@@ -26,12 +26,34 @@ margin-top: -100px;
 color: #7d604f;
 }
 
+.block-text:first-of-type p:first-child em {
+    font-size: 40px;
+}
+
+#channel-blocks li:first-child {
+    background-color: transparent;
+    width: 100%;
+}
+
+figcaption {
+    background-color: white;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 20px;
+    background-color: blanchedalmond;
+}
+
 #channel-description {
     font-size: 35px;
 }
 
 #channel-blocks {
-    display: grid; 
+    /* display: grid;  */
     /* flex-wrap: wrap;  */
     /* grid-template-columns: repeat(2, 1fr); */
 }
@@ -52,7 +74,7 @@ color: #7d604f;
     padding-bottom: 30px;
     padding-right: 30px;
 }
-
+/* 
 @media (min-width: 1080px) {
 
     #channel-blocks {
@@ -61,4 +83,4 @@ color: #7d604f;
     }
 
   
-}
+} */

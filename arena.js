@@ -45,7 +45,7 @@ let renderBlock = (block) => {
 					<img src="${ block.image.original.url }">
 				</picture>
 				<h3>${ block.title }</h3>
-				${ block.description_html }
+				<h4>${ block.description_html }</h4>
 				<p><a href="${ block.source.url }">See the original ↗</a></p>
 			</li>
 			`
@@ -86,7 +86,7 @@ let renderBlock = (block) => {
         `
         <li class="block-text">
             <p><em></em></p>
-            <div>${block.content_html}</div>
+			<div>${block.content_html}</div>
         </li>
         `;
 		channelBlocks.insertAdjacentHTML('beforeend', textItem);
@@ -124,7 +124,7 @@ let renderBlock = (block) => {
                     	<img src="${ block.image.original.url }">
                			</picture>
                 		<h3>${ block.title }</h3>
-               			${ block.description_html }
+               			<h4>${ block.description_html }</h4>
 						<p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
 					</li>
 					`;
@@ -158,6 +158,8 @@ let renderBlock = (block) => {
 				<li class="block-linked-video">
 					<p><em></em></p>
 					${ block.embed.html }
+					<h3>${ block.title }</h3>
+					<h4>${ block.description_html }</h4>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
@@ -206,3 +208,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 	})
+
+
+
+
