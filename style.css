@@ -87,6 +87,12 @@ h4 {
     font-style: italic;
 }
 
+#channel-blocks {
+    display: grid;
+    padding: 30px;
+}
+
+
 
 #channel-blocks > li {
     /* width: 100%; */
@@ -302,6 +308,17 @@ h4 {
     opacity: 0.2;
 }
 
+.profile img {
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: transform 0.7s ease;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+}
+
+.profile img:hover {
+    opacity: 1;
+    scale: 1.1;
+}
 
 
 
@@ -316,6 +333,19 @@ h4 {
     #channel-blocks {
         grid-template-columns: repeat(2, 1fr);
         max-width: 1080px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    #channel-blocks {
+        grid-template-columns: repeat(3, 1fr);
+        min-width: 1640px;
+    }
+
+    #channel-blocks < li {
+        margin: 30px;
     }
 
 }

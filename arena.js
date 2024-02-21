@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let renderUser = (user, container) => { // You can have multiple arguments for a function!
         let userAddress =
             `
-        <address>
+        <address class="profile">
             <img src="${ user.avatar_image.display }">
             <h3>${ user.first_name }</h3>
             <p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
