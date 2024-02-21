@@ -14,7 +14,6 @@ body, header, section, ul, li, footer, address {
 	gap: 30px;
 }
 
-
 /* main { max-width: 600px } */
 a { color: brown; }
 em { font-style: italic;}
@@ -36,13 +35,18 @@ padding: 10px 30px;
 border-radius: 50%;
 }
 
+.block-text p {
+    font-size: 22px;
+}
+
 
 .block-text:first-of-type p:first-child em {
     font-size: 40px;
+   
 }
 
 .block-text:first-child {
-    margin-top: 120vh;
+    margin-top: 140vh;
 }
 
 #channel-blocks li:first-child {
@@ -55,12 +59,12 @@ figcaption {
 }
 
 h3 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 h4 {
     font-size: 20px;
-    background-color: blanchedalmond;
+    font-style: italic;
 }
 
 #channel-description {
@@ -79,7 +83,7 @@ h4 {
 .block-image {
     position: absolute;
     left: calc(50% - 100px); 
-    top: calc(50% - 0px);
+    top: calc(50% - -200px);
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -88,6 +92,12 @@ h4 {
     min-width: 160px;
     max-width: 230px;
     opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.block-image img:hover {
+    transform: scale(1.1); 
+    opacity: 1; 
 }
 
 
@@ -100,8 +110,16 @@ h4 {
     padding-left: 30px;
     padding-bottom: 30px;
     padding-right: 30px;
+    margin-bottom: 20px;
 }
 
+.block-linked-video {
+    margin-bottom: 20px;
+}
+
+.block-link {
+    margin-bottom: 20px;
+}
 
 .block-image:nth-child(1) {
     transform: rotate(0deg) translate(-200px, -200px);
@@ -286,5 +304,4 @@ h4 {
         max-width: 1080px;
     }
 
-  
 }

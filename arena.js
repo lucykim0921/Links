@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (block.class == 'Link') {
             let linkItem =
                 `
-            <li>
+            <li class="block-link">
                 <p><em></em></p>
                 <picture>
                     <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
@@ -265,6 +265,7 @@ function enableDraggable() {
 
 // Call the function to enable dragging for image blocks
 enableDraggable();
+
 
 
 
