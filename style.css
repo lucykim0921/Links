@@ -5,12 +5,15 @@ body {
     background-position: top;
 	/* font-family: monospace; */
 	padding: 50px;
+    cursor:
+		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>💫</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 body, header, section, ul, li, footer, address {
 	display: grid;
 	gap: 30px;
 }
+
 
 /* main { max-width: 600px } */
 a { color: brown; }
@@ -39,7 +42,7 @@ border-radius: 50%;
 }
 
 .block-text:first-child {
-    margin-top: 60vh;
+    margin-top: 120vh;
 }
 
 #channel-blocks li:first-child {
@@ -65,7 +68,6 @@ h4 {
 }
 
 #channel-blocks {
-
 }
 
 #channel-blocks > li {
@@ -102,7 +104,7 @@ h4 {
 
 
 .block-image:nth-child(1) {
-    transform: rotate(-20deg) translate(-200px, -200px);
+    transform: rotate(0deg) translate(-200px, -200px);
 }
 
 .block-image:nth-child(2) {
@@ -119,7 +121,7 @@ h4 {
 }
 
 .block-image:nth-child(5) {
-    transform: rotate(25deg) translate(200px, 200px);
+    transform: rotate(0deg) translate(200px, 200px);
     opacity: 0.7;
 }
 
@@ -132,7 +134,7 @@ h4 {
 }
 
 .block-image:nth-child(8) {
-    transform: rotate(-5deg) translate(-250px, 150px);
+    transform: rotate(0deg) translate(-250px, 150px);
     opacity: 0.2;
 }
 
@@ -154,7 +156,7 @@ h4 {
 }
 
 .block-image:nth-child(13) {
-    transform: rotate(5deg) translate(50px, 250px);
+    transform: rotate(0deg) translate(50px, 250px);
     opacity: 0.2;
 }
 
@@ -181,7 +183,7 @@ h4 {
 }
 
 .block-image:nth-child(19) {
-    transform: rotate(-15deg) translate(50px, -100px);
+    transform: rotate(0deg) translate(50px, -100px);
 }
 
 .block-image:nth-child(20) {
@@ -207,7 +209,7 @@ h4 {
 }
 
 .block-image:nth-child(25) {
-    transform: rotate(-25deg) translate(50px, 150px);
+    transform: rotate(0deg) translate(50px, 150px);
     opacity: 0.9;
 }
 
@@ -220,7 +222,7 @@ h4 {
 }
 
 .block-image:nth-child(28) {
-    transform: rotate(10deg) translate(-50px, 250px);
+    transform: rotate(0deg) translate(-50px, 250px);
     opacity: 0.2;
 }
 
@@ -243,7 +245,7 @@ h4 {
 }
 
 .block-image:nth-child(33) {
-    transform: rotate(30deg) translate(150px, -200px);
+    transform: rotate(0deg) translate(150px, -200px);
 }
 
 .block-image:nth-child(34) {
@@ -264,7 +266,7 @@ h4 {
 }
 
 .block-image:nth-child(38) {
-    transform: rotate(-25deg) translate(-250px, -200px);
+    transform: rotate(0deg) translate(-250px, -200px);
     opacity: 0.2;
 }
 

@@ -265,3 +265,6 @@ function enableDraggable() {
 
 // Call the function to enable dragging for image blocks
 enableDraggable();
+
+
+
