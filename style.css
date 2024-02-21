@@ -15,14 +15,25 @@ body, header, section, ul, li, footer, address {
 }
 
 /* main { max-width: 600px } */
-a { color: brown; }
-em { font-style: italic;}
+a { color: brown; 
+    transition: transform 0.3 ease-in-out;
+}
+
+a:hover {
+    transform: scale(2); 
+}
+
+em {
+    font-family: 'Cormorant Garamond', serif;
+}
 strong { font-weight: bold; }
-p { max-width: 50ch; }
+p { font-family: 'Cormorant Garamond', serif;
+    max-width: 50ch; }
 
 #channel-title {
-font-size: 60px;
+font-size: 50px;
 font-weight: bold;
+font-family: cinzel;
 position: fixed;
 margin-top: -100px;
 color: #7d604f;
@@ -42,6 +53,7 @@ border-radius: 50%;
 
 .block-text:first-of-type p:first-child em {
     font-size: 40px;
+    color: #DA9D10;
    
 }
 
@@ -60,6 +72,7 @@ figcaption {
 
 h3 {
     font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 h4 {
@@ -69,10 +82,11 @@ h4 {
 
 #channel-description {
     font-size: 35px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
-#channel-blocks {
-}
 
 #channel-blocks > li {
     /* width: 100%; */
