@@ -105,6 +105,7 @@ h4 {
     left: calc(50% - 100px); 
     top: calc(50% - -200px);
     height: auto; /* Maintain aspect ratio */
+    cursor: move;
 }
 
 
@@ -327,7 +328,7 @@ h4 {
 
 
 
-
+/* 
 @media (min-width: 1080px) {
 
     #channel-blocks {
@@ -348,4 +349,4 @@ h4 {
         margin: 30px;
     }
 
-}
+} */

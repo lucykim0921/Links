@@ -212,24 +212,32 @@ function enableDraggable() {
 
     // Function to handle mouse down event
     function onMouseDown(event) {
-        isDragging = true;
-        currentImage = this;
-
-        // Store initial mouse position relative to the image position
-        initialX = event.clientX - currentImage.getBoundingClientRect().left;
-        initialY = event.clientY - currentImage.getBoundingClientRect().top;
-
-        // Bring the current image to the top
-        currentImage.style.zIndex = 1000;
-
-        // Prevent default browser behavior
-        event.preventDefault();
-
-        // Add event listeners for mouse move and mouse up events
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    }
-
+		isDragging = true;
+		currentImage = this;
+	
+		// Calculate initial mouse position relative to the document
+		let initialMouseX = event.clientX;
+		let initialMouseY = event.clientY;
+	
+		// Calculate the initial position of the image relative to the document
+		let rect = currentImage.getBoundingClientRect();
+		let imageX = rect.left + window.scrollX;
+		let imageY = rect.top + window.scrollY;
+	
+		// Calculate the initial position of the mouse relative to the image
+		initialX = initialMouseX - imageX;
+		initialY = initialMouseY - imageY;
+	
+		// Bring the current image to the top
+		currentImage.style.zIndex = 1000;
+	
+		// Prevent default browser behavior
+		event.preventDefault();
+	
+		// Add event listeners for mouse move and mouse up events
+		document.addEventListener('mousemove', onMouseMove);
+		document.addEventListener('mouseup', onMouseUp);
+	}
     // Function to handle mouse move event
     function onMouseMove(event) {
         if (isDragging && currentImage) {
@@ -265,7 +273,3 @@ function enableDraggable() {
 
 // Call the function to enable dragging for image blocks
 enableDraggable();
-
-
-
-
