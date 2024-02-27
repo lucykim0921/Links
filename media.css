@@ -100,31 +100,12 @@ h4 {
     max-width: 450px;
 }
 
-.block-image {
-    position: absolute;
-    left: calc(50% - 100px); 
-    top: calc(50% - -200px);
-    height: auto; /* Maintain aspect ratio */
-    cursor: move;
-}
-
-
-.block-image img {
-    min-width: 160px;
-    max-width: 230px;
-    opacity: 0.5;
-    transition: transform 0.5s ease, opacity 0.3s ease;
-}
 
 .block-image img:hover {
     transform: scale(1.1); 
     opacity: 1; 
 }
 
-
-.block-image-description {
-    display: none;
-}
 
 .block-text {
     background-color: rgba(255, 255, 255, 0.3);
