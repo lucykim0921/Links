@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         channelLink.href = `https://www.are.na/channel/${channelSlug}`;
     };
 
-
-
     // Then our big function for specific-block-type rendering:
     let renderImageBlock = (block) => {
         // To start, a shared `ul` where we’ll insert all our blocks
@@ -46,15 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="block-image-description">
                         ${block.description_html}
                     </div>
-
                 </li>
-
                 `;
             channelBlocks.insertAdjacentHTML('beforeend', imageItem);
-
-		
         }
-    }
+    };
 
     // It‘s always good to credit your work:
     let renderUser = (user, container) => { // You can have multiple arguments for a function!
@@ -69,97 +63,114 @@ document.addEventListener('DOMContentLoaded', function() {
         container.insertAdjacentHTML('beforeend', userAddress);
     };
 
-    // Now that we have said what we can do, go get the data:
-    fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
-        .then((response) => response.json()) // Return it as JSON data
-        .then((data) => { // Do stuff with the data
-            console.log(data); // Always good to check your response!
-            placeChannelInfo(data); // Pass the data to the first function
+    // Function to enable dragging for image blocks
+    function enableDraggable() {
+        let isDragging = false;
+        let currentImage = null;
+        let initialX = 0;
+        let initialY = 0;
 
-            // Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
-            data.contents.reverse().forEach((block) => {
-                // console.log(block) // The data for a single block
-                renderImageBlock(block); // Pass the single block data to the render function
-            });
-
-            // Also display the owner and collaborators:
-            let channelUsers = document.getElementById('channel-users'); // Show them together
-            data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers));
-            renderUser(data.user, channelUsers);
-
-            // Enable draggable functionality after rendering blocks
-            enableDraggable();
-        });
-});
-
-
-// Function to enable dragging for image blocks
-function enableDraggable() {
-    let isDragging = false;
-    let currentImage = null;
-    let initialX = 0;
-    let initialY = 0;
-
-    // Function to handle mouse down event
-    function onMouseDown(event) {
-		isDragging = true;
-		currentImage = this;
-	
-		// Calculate initial mouse position relative to the document
-		let initialMouseX = event.clientX;
-		let initialMouseY = event.clientY;
-	
-		// Calculate the initial position of the image relative to the document
-		let rect = currentImage.getBoundingClientRect();
-		let imageX = rect.left + window.scrollX;
-		let imageY = rect.top + window.scrollY;
-	
-		// Calculate the initial position of the mouse relative to the image
-		initialX = initialMouseX - imageX;
-		initialY = initialMouseY - imageY;
-	
-		// Bring the current image to the top
-		currentImage.style.zIndex = 1000;
-	
-		// Prevent default browser behavior
-		event.preventDefault();
-	
-		// Add event listeners for mouse move and mouse up events
-		document.addEventListener('mousemove', onMouseMove);
-		document.addEventListener('mouseup', onMouseUp);
-	}
-    // Function to handle mouse move event
-    function onMouseMove(event) {
-        if (isDragging && currentImage) {
-            // Calculate new position of the image
-            let newX = event.clientX - initialX;
-            let newY = event.clientY - initialY;
-
-            // Update position of the image
-            currentImage.style.left = newX + 'px';
-            currentImage.style.top = newY + 'px';
+        // Function to handle mouse down event
+        function onMouseDown(event) {
+            isDragging = true;
+            currentImage = this;
+        
+            // Calculate initial mouse position relative to the document
+            let initialMouseX = event.clientX;
+            let initialMouseY = event.clientY;
+        
+            // Calculate the initial position of the image relative to the document
+            let rect = currentImage.getBoundingClientRect();
+            let imageX = rect.left + window.scrollX;
+            let imageY = rect.top + window.scrollY;
+        
+            // Calculate the initial position of the mouse relative to the image
+            initialX = initialMouseX - imageX;
+            initialY = initialMouseY - imageY;
+        
+            // Bring the current image to the top
+            currentImage.style.zIndex = 1000;
+        
+            // Prevent default browser behavior
+            event.preventDefault();
+        
+            // Add event listeners for mouse move and mouse up events
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
         }
+
+        // Function to handle mouse move event
+        function onMouseMove(event) {
+            if (isDragging && currentImage) {
+                // Calculate new position of the image
+                let newX = event.clientX - initialX;
+                let newY = event.clientY - initialY;
+
+                // Update position of the image
+                currentImage.style.left = newX + 'px';
+                currentImage.style.top = newY + 'px';
+            }
+        }
+
+        // Function to handle mouse up event
+        function onMouseUp() {
+            isDragging = false;
+            currentImage = null;
+
+            // Remove event listeners for mouse move and mouse up events
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+
+        // Get all image blocks
+        let imageBlocks = document.querySelectorAll('.block-image');
+
+        // Enable dragging for each image block
+        imageBlocks.forEach(function(imageBlock) {
+            // Add event listener for mouse down event
+            imageBlock.addEventListener('mousedown', onMouseDown);
+        });
     }
 
-    // Function to handle mouse up event
-    function onMouseUp() {
-        isDragging = false;
-        currentImage = null;
-
-        // Remove event listeners for mouse move and mouse up events
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-    }
-
-    // Get all image blocks
+  // Function to scatter images randomly within the image container
+  function scatterImagesRandomly() {
+    let imageContainer = document.querySelector('.image-container');
     let imageBlocks = document.querySelectorAll('.block-image');
 
-    // Enable dragging for each image block
     imageBlocks.forEach(function(imageBlock) {
-        // Add event listener for mouse down event
-        imageBlock.addEventListener('mousedown', onMouseDown);
+        let maxX = imageContainer.offsetWidth - imageBlock.offsetWidth;
+        let maxY = imageContainer.offsetHeight - imageBlock.offsetHeight;
+        let randomX = Math.floor(Math.random() * maxX);
+        let randomY = Math.floor(Math.random() * maxY);
+
+        imageBlock.style.position = 'absolute';
+        imageBlock.style.left = randomX + 'px';
+        imageBlock.style.top = randomY + 'px';
     });
 }
 
-// Call the function to enable dragging for image blocks
-enableDraggable();
+// Call the function to scatter images randomly
+scatterImagesRandomly();
+
+// Now that we have said what we can do, go get the data:
+fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
+    .then((response) => response.json()) // Return it as JSON data
+    .then((data) => { // Do stuff with the data
+        console.log(data); // Always good to check your response!
+        placeChannelInfo(data); // Pass the data to the first function
+
+        // Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
+        data.contents.reverse().forEach((block) => {
+            // console.log(block) // The data for a single block
+            renderImageBlock(block); // Pass the single block data to the render function
+        });
+
+        // Also display the owner and collaborators:
+        let channelUsers = document.getElementById('channel-users'); // Show them together
+        data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers));
+        renderUser(data.user, channelUsers);
+
+        // Enable draggable functionality after rendering blocks
+        enableDraggable();
+    });
+});

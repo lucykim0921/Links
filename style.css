@@ -22,7 +22,7 @@ a { color: brown;
 }
 
 a:hover {
-    transform: scale(2); 
+    transform: scale(1.2); 
 }
 
 em {
@@ -37,9 +37,6 @@ p {
 
 
 /* header page */
-
-
-
 .background-image {
     position: fixed;
     top: 0;
@@ -100,10 +97,29 @@ header p {
 }
 
 
+/* nav */
+nav {
+    position: fixed;
+    display: flex;
+    text-transform: uppercase;
+    transform: rotate(270deg);
+    transform-origin: left top;
+    width: 90vh;
+    bottom: 10px;
+    justify-content: space-between;
+    left: 10px;
+}
+
 /* image container */
+.image-container {
+    height: 100vh;
+    width: 100vw;
+    padding: 40px;
+}
 
 .image-container h2 {
     margin: auto;
+    margin-bottom: 40px;
     font-family: var(--description-font);
     font-size: 40px;
     font-style: italic;
@@ -116,8 +132,8 @@ header p {
     top: calc(50% - -200px); */
     height: auto; /* Maintain aspect ratio */
     cursor: move;
+    position: absolute;
 }
-
 
 .block-image img {
     min-width: 160px;
@@ -131,26 +147,15 @@ header p {
     opacity: 1; 
 }
 
+.block-image img:after {
+    z-index: 100000;
+}
+
 
 .block-image-description {
     display: none;
 }
 
-.block-text {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding-left: 30px;
-    padding-bottom: 30px;
-    padding-right: 30px;
-    margin-bottom: 20px;
-}
-
-.block-linked-video {
-    margin-bottom: 20px;
-}
-
-.block-link {
-    margin-bottom: 20px;
-}
 /* 
 .block-image:nth-child(1) {
     transform: rotate(0deg) translate(-200px, -200px);
@@ -319,16 +324,68 @@ header p {
     opacity: 0.2;
 } */
 
+
+
+/* Explore section */
+
+.explore {
+    height: 100vh;
+    padding: 40px 0;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 0;
+}
+
+.explore h2 {
+    font-family: var(--description-font);
+    font-size: 35px;
+    font-style: italic;
+    color: white;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+.explore h4 {
+    font-size: 30px;
+    font-family: var(--description-font);
+    color: #ffeec7;
+    text-align: center;
+    padding: 0 20px;
+    font-style: italic;
+}
+
+.explore a {
+    margin: auto;
+}
+
+
+/* users */
+
+#channel-users {
+    display: flex;
+    gap: 60px;
+    margin: auto;
+}
+
 .profile img {
     border-radius: 50%;
     opacity: 0.8;
     transition: transform 0.7s ease;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    width: 100px;
+    height: 100px;
 }
 
 .profile img:hover {
     opacity: 1;
     scale: 1.1;
+}
+
+/* footer */
+footer {
+    /* position: fixed;
+    bottom: 0; */
 }
 
 
