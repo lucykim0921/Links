@@ -70,14 +70,27 @@ document.addEventListener('DOMContentLoaded', function() {
         imageContainer.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Event listener for the "Immerse" button
+    // Event listener for the "Gallery" button
     let immerseButton = document.querySelector('#landing-page-nav .navigation[href="#image-container"]');
     immerseButton.addEventListener('click', function(event) {
         event.preventDefault();
         scrollToImageContainer();
     });
 
-    
+    // Function to scroll and snap to the top of the page
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Event listener to the "Home" button
+    let homeButton = document.getElementById('home-button');
+    homeButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default behavior of anchor tag
+        scrollToTop(); // Scroll to the top of the page
+    });
 
     // Function to enable dragging for image blocks
     function enableDraggable() {
