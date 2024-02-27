@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+    //function for navigation scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the URL contains a hash that matches the ID of the image container
+        if (window.location.hash === '#image-container') {
+            // Scroll to the image container section
+            let imageContainer = document.getElementById('image-container');
+            if (imageContainer) {
+                imageContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+
+
     // Then our big function for specific-block-type rendering:
     let renderBlock = (block) => {
         // To start, a shared `ul` where we’ll insert all our blocks
