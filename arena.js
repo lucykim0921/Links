@@ -28,30 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Then our big function for specific-block-type rendering:
     let renderBlock = (block) => {
         // To start, a shared `ul` where we’ll insert all our blocks
-        let channelBlocks = document.getElementById('channel-blocks');
+        let channelBlocks = document.getElementById('block-image');
 
-        // Links!
-        if (block.class == 'Link') {
-            let linkItem =
-                `
-            <li class="block-link">
-                <p><em></em></p>
-                <picture>
-                    <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-                    <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-                    <img src="${ block.image.original.url }">
-                </picture>
-                <h3>${ block.title }</h3>
-                <h4>${ block.description_html }</h4>
-                <p><a href="${ block.source.url }">See the original ↗</a></p>
-            </li>
-            `;
-            channelBlocks.insertAdjacentHTML('beforeend', linkItem);
-        }
-
-		
         // Images!
-        else if (block.class == 'Image') {
+        if (block.class == 'Image') {
             console.log(block.description_html);
             let imageItem =
                 `
@@ -66,103 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </li>
 
-
         `;
-            channelBlocks.insertAdjacentHTML('beforeend', imageItem);
-			document.querySelectorAll('.block-image').forEach(function(image) {
-				image.style.setProperty('--angle', Math.random() * 360 + 'deg');
-			});
-        }
+            let imageBlocks = document.getElementById('block-image');
+            imageBlocks.insertAdjacentHTML('beforeend', imageItem);
 
-        // Text!
-        else if (block.class == 'Text') {
-            // …up to you!
-            let textItem =
-                `
-        <li class="block-text">
-            <p><em></em></p>
-            <div>${block.content_html}</div>
-        </li>
-        `;
-            channelBlocks.insertAdjacentHTML('beforeend', textItem);
-        }
-
-        // Uploaded (not linked) media…
-        else if (block.class == 'Attachment') {
-            let attachment = block.attachment.content_type; // Save us some repetition
-
-            // Uploaded videos!
-            if (attachment.includes('video')) {
-                // …still up to you, but we’ll give you the `video` element:
-                let videoItem =
-                    `
-                <li class="block-video">
-                    <p><em></em></p>
-                    <video controls src="${block.attachment.url}"></video>
-                </li>
-                `;
-                channelBlocks.insertAdjacentHTML('beforeend', videoItem);
-                // More on video, like the `autoplay` attribute:
-                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
-            }
-
-            // Uploaded PDFs!
-            else if (attachment.includes('pdf')) {
-                // …up to you!
-                let pdfItem =
-                    `
-                <li class="block-pdf">
-                    <p><em></em></p>
-                    <picture>
-                        <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-                        <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-                        <img src="${ block.image.original.url }">
-                    </picture>
-					<h3>${ block.title }</h3>
-                    <p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
-                </li>
-                `;
-                channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
-            }
-
-            // Uploaded audio!
-            else if (attachment.includes('audio')) {
-                // …still up to you, but here’s an `audio` element:
-                let audioItem =
-                    `
-                <li>
-                    <p><em></em></p>
-                    <audio controls src="${ block.attachment.url }"></video>
-                </li>
-                `;
-                channelBlocks.insertAdjacentHTML('beforeend', audioItem);
-                // More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-            }
-        }
-
-        // Linked media…
-        else if (block.class == 'Media') {
-            let embed = block.embed.type;
-
-            // Linked video!
-            if (embed.includes('video')) {
-                // …still up to you, but here’s an example `iframe` element:
-                let linkedVideoItem =
-                    `
-                <li class="block-linked-video">
-                    <p><em></em></p>
-                    ${ block.embed.html }
-                    <h3>${ block.title }</h3>
-                </li>
-                `;
-                channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem);
-                // More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-            }
-
-            // Linked audio!
-            else if (embed.includes('rich')) {
-                // …up to you!
-            }
+		
         }
     };
 
