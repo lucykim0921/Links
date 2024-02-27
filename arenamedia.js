@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let placeChannelInfo = (data) => {
         // Target some elements in your HTML:
         let channelTitle = document.getElementById('channel-title');
-        let channelDescription = document.getElementById('channel-description');
+        let chanfnelDescription = document.getElementById('channel-description');
         let channelCount = document.getElementById('channel-count');
         let channelLink = document.getElementById('channel-link');
 
@@ -47,18 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (block.class == 'Link') {
             let linkItem =
                 `
-            <li class="block-link">
+            <li class="block-media block-link">
                 <p><em></em></p>
                 <picture>
-                    <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-                    <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-                    <img src="${ block.image.original.url }">
+                    <img src="${ block.image.large.url }">
                 </picture>
                 <h3>${ block.title }</h3>
                 <h4>${ block.description_html }</h4>
                 <p><a href="${ block.source.url }">See the original ↗</a></p>
             </li>
             `;
+
             channelBlocks.insertAdjacentHTML('beforeend', linkItem);
         }
 
@@ -67,13 +66,20 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (block.class == 'Text') {
             // …up to you!
             console.log(block)
+
+            let wordLimit = 45;
+            let truncatedContent = block.content_html.split(' ').slice(0, wordLimit).join(' ');
+            if (block.content_html.split(' ').length > wordLimit) {
+                truncatedContent += '...';
+            }
+
             let textItem =
                 `
-        <li class="block-text">
-            <p><em></em></p>
-            <div>${block.content_html}</div>
-        </li>
-        `;
+            <li class="block-text">
+                <p><em></em></p>
+                <div>${truncatedContent}</div>
+            </li>
+            `;
             channelBlocks.insertAdjacentHTML('beforeend', textItem);
         }
 
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // …still up to you, but we’ll give you the `video` element:
                 let videoItem =
                     `
-                <li class="block-video">
+                <li class="block-media block-video">
                     <p><em></em></p>
                     <video controls src="${block.attachment.url}"></video>
                 </li>
@@ -101,11 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // …up to you!
                 let pdfItem =
                     `
-                <li class="block-pdf">
+                <li class="block-media block-pdf">
                     <p><em></em></p>
                     <picture>
-                        <source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-                        <source media="(max-width: 640px)" srcset="${ block.image.large.url }">
                         <img src="${ block.image.original.url }">
                     </picture>
 					<h3>${ block.title }</h3>
@@ -120,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // …still up to you, but here’s an `audio` element:
                 let audioItem =
                     `
-                <li class="block-audio>
+                <li class="block-media block-audio>
                     <p><em></em></p>
                     <audio controls src="${ block.attachment.url }"></video>
                 </li>
@@ -139,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // …still up to you, but here’s an example `iframe` element:
                 let linkedVideoItem =
                     `
-                <li class="block-linked-video">
+                <li class="block-media block-linked-video">
                     <p><em></em></p>
                     ${ block.embed.html }
                     <h3>${ block.title }</h3>
@@ -148,6 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem);
                 // More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
             }
+
+            
 
         }
     };
