@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         container.insertAdjacentHTML('beforeend', userAddress);
     };
 
+
     // Function to enable dragging for image blocks
     function enableDraggable() {
         let isDragging = false;
@@ -75,19 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
             isDragging = true;
             currentImage = this;
         
-            // Calculate initial mouse position relative to the document
-            let initialMouseX = event.clientX;
-            let initialMouseY = event.clientY;
-        
-            // Calculate the initial position of the image relative to the document
+            /// Calculate initial mouse position relative to the image container
             let rect = currentImage.getBoundingClientRect();
-            let imageX = rect.left + window.scrollX;
-            let imageY = rect.top + window.scrollY;
-        
-            // Calculate the initial position of the mouse relative to the image
-            initialX = initialMouseX - imageX;
-            initialY = initialMouseY - imageY;
-        
+            initialX = event.clientX - rect.left;
+            initialY = event.clientY - rect.top;
+
             // Bring the current image to the top
             currentImage.style.zIndex = 1000;
         
@@ -111,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentImage.style.top = newY + 'px';
             }
         }
+
 
         // Function to handle mouse up event
         function onMouseUp() {
@@ -138,10 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let imageBlocks = document.querySelectorAll('.block-image');
 
     imageBlocks.forEach(function(imageBlock) {
+        let containerRect = imageContainer.getBoundingClientRect();
         let maxX = imageContainer.offsetWidth - imageBlock.offsetWidth;
         let maxY = imageContainer.offsetHeight - imageBlock.offsetHeight;
         let randomX = Math.floor(Math.random() * maxX);
         let randomY = Math.floor(Math.random() * maxY);
+
+        // Ensure the image stays within the bounds of the image container
+        randomX = Math.max(0, randomX);
+        randomY = Math.max(0, randomY);
 
         imageBlock.style.position = 'absolute';
         imageBlock.style.left = randomX + 'px';
@@ -149,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }
 
-// Call the function to scatter images randomly
 scatterImagesRandomly();
 
 // Now that we have said what we can do, go get the data:
@@ -169,6 +167,8 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
         let channelUsers = document.getElementById('channel-users'); // Show them together
         data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers));
         renderUser(data.user, channelUsers);
+
+        scatterImagesRandomly();
 
         // Enable draggable functionality after rendering blocks
         enableDraggable();
