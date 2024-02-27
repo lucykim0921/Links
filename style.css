@@ -3,6 +3,10 @@
     --description-font: 'Cormorant Garamond', serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
     background-color: #e8ddcc;
@@ -99,7 +103,7 @@ header p {
 
 
 /* nav */
-nav {
+#landing-page-nav {
     position: fixed;
     display: flex;
     text-transform: uppercase;
@@ -109,18 +113,23 @@ nav {
     bottom: 10px;
     justify-content: space-between;
     left: 10px;
+    z-index: 100000;
 }
 
 /* image container */
-.image-container {
+#image-container {
     height: 100vh;
     width: 100vw;
     /* margin: 500px; */
     margin: auto;
     position: relative;
+    /*  */
+    /* display: grid; */
+    /* justify-content: center;
+    align-items: center; */
 }
 
-.image-container h2 {
+#image-container h2 {
     margin: auto;
     margin-bottom: 40px;
     font-family: var(--description-font);
@@ -135,13 +144,16 @@ nav {
     cursor: move;
     position: absolute;
     display: block;
+    width: 16vw;
+    justify-content: space-between;
     /* overflow: hidden; */
     /* max-width: 100%;
     max-height: 100%; */
 }
 
 .block-image img {
-    width: 100px;
+    width: 100%;
+    height: auto;
     max-width: 230px;
     opacity: 0.5;
     transition: transform 0.5s ease, opacity 0.3s ease;
@@ -175,16 +187,20 @@ nav {
     color: white;
     padding: 0 20px;
     text-align: center;
+    margin: auto;
 }
 
 
 .explore h4 {
     font-size: 30px;
     font-family: var(--description-font);
-    color: #ffeec7;
+    color: #444036;
     text-align: center;
     padding: 0 20px;
     font-style: italic;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
 }
 
 .explore a {
@@ -227,25 +243,14 @@ footer {
 
 
 
-/* 
+
 @media (min-width: 1080px) {
 
-    #channel-blocks {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1080px;
-    }
 
+ 
 }
 
 @media (min-width: 1440px) {
 
-    #channel-blocks {
-        grid-template-columns: repeat(3, 1fr);
-        min-width: 1640px;
-    }
 
-    #channel-blocks < li {
-        margin: 30px;
-    }
-
-} */
+}

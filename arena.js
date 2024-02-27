@@ -64,6 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
 
+    // Function to scroll to the image container section
+    function scrollToImageContainer() {
+        let imageContainer = document.getElementById('image-container');
+        imageContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Event listener for the "Immerse" button
+    let immerseButton = document.querySelector('#landing-page-nav .navigation[href="#image-container"]');
+    immerseButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        scrollToImageContainer();
+    });
+
+    
+
     // Function to enable dragging for image blocks
     function enableDraggable() {
         let isDragging = false;
@@ -78,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
             /// Calculate initial mouse position relative to the image container
             let rect = currentImage.getBoundingClientRect();
+
+            let scrollX = window.scrollX || window.pageXOffset;
+            let scrollY = window.scrollY || window.pageYOffset;
             initialX = event.clientX - rect.left;
             initialY = event.clientY - rect.top;
 
@@ -128,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to scatter images randomly within the image container
   function scatterImagesRandomly() {
-    let imageContainer = document.querySelector('.image-container');
+    let imageContainer = document.getElementById('image-container');
     let imageBlocks = document.querySelectorAll('.block-image');
 
     imageBlocks.forEach(function(imageBlock) {
