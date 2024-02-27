@@ -1,17 +1,19 @@
+:root {
+    --title-font: cinzel;
+    --description-font: 'Cormorant Garamond', serif;
+}
+
+
 body {
-    margin-top: 100px;
-	--spacing: 2em;
     background-color: #e8ddcc;
     background-position: top;
-	/* font-family: monospace; */
-	padding: 50px;
     cursor:
 		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>💫</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 body, header, section, ul, li, footer, address {
 	display: grid;
-	gap: 30px;
+	/* gap: 30px; */
 }
 
 /* main { max-width: 600px } */
@@ -26,45 +28,86 @@ a:hover {
 em {
     font-family: 'Cormorant Garamond', serif;
 }
-strong { font-weight: bold; }
-p { font-family: 'Cormorant Garamond', serif;
-    max-width: 50ch; }
 
-#channel-title {
-font-size: 50px;
-font-weight: bold;
-font-family: cinzel;
-position: fixed;
-margin-top: -100px;
-color: #7d604f;
-z-index: 10000;
+p { 
+    font-family: var(--description-font);
+    max-width: 50ch; 
 }
 
-h1 {
-box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
-padding: 10px 30px;
-border-radius: 50%;
+
+
+/* header page */
+
+
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -10000;
+    opacity: 20%;
+    filter: blur (1px);
+    overflow: hidden;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* filter: hue-rotate(95deg) saturate(100%); */
+}
+
+header {
+    margin: auto;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    height: 100vh;
+    /* justify-content: center;
+    align-items: center; */
+    grid-gap: 0;
+}
+
+#channel-title {
+    font-family: var(--title-font);
+    font-size: 50px;
+    margin: auto;
+    color: #4f3e34;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    padding: 10px 30px;
+    border-radius: 50%; 
 }
 
 figcaption {
     display: none;
 }
 
-h3 {
-    font-size: 30px;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-h4 {
-    font-size: 20px;
-    font-style: italic;
-}
-
 #channel-description {
+    color: white;
     font-size: 35px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--description-font);
     font-weight: 400;
     font-style: italic;
+    margin: auto;
+    text-align: center;
+    padding: 40px;
+}
+
+header p {
+    margin: auto;
+    justify-content: center;
+}
+
+
+/* image container */
+
+.image-container h2 {
+    margin: auto;
+    font-family: var(--description-font);
+    font-size: 40px;
+    font-style: italic;
+    color: white;
 }
 
 .block-image {

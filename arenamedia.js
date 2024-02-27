@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Then set their content/attributes to our data:
         channelTitle.innerHTML = data.title;
-        channelDescription.innerHTML = window.markdownit().render(data.metadata.description); // Converts Markdown → HTML
+        // channelDescription.innerHTML = window.markdownit().render(data.metadata.description); // Converts Markdown → HTML
         // channelCount.innerHTML = data.length;
         channelLink.href = `https://www.are.na/channel/${channelSlug}`;
     };
@@ -171,6 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
             renderUser(data.user, channelUsers);
 
             // Enable draggable functionality after rendering blocks
-            enableDraggable();
+            // enableDraggable();
         });
 });
