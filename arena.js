@@ -19,40 +19,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // Then set their content/attributes to our data:
         channelTitle.innerHTML = data.title;
         channelDescription.innerHTML = window.markdownit().render(data.metadata.description); // Converts Markdown → HTML
-        channelCount.innerHTML = data.length;
+        // channelCount.innerHTML = data.length;
         channelLink.href = `https://www.are.na/channel/${channelSlug}`;
     };
 
 
 
     // Then our big function for specific-block-type rendering:
-    let renderBlock = (block) => {
+    let renderImageBlock = (block) => {
         // To start, a shared `ul` where we’ll insert all our blocks
         let channelBlocks = document.getElementById('block-image');
 
+        console.log("Rendering image block...")
+
         // Images!
         if (block.class == 'Image') {
+            console.log("image block found:", block);
             console.log(block.description_html);
             let imageItem =
                 `
-        <li class="block-image">
-            <p><em></em></p>
-            <img src="${block.image.original.url}" alt="Image">
-            <figcaption>${block.title}</figcaption>
+                <li class="block-image">
+                    <p><em></em></p>
+                    <img src="${block.image.original.url}" alt="Image">
+                    <figcaption>${block.title}</figcaption>
 
-            <div class="block-image-description">
-                ${block.description_html}
-            </div>
+                    <div class="block-image-description">
+                        ${block.description_html}
+                    </div>
 
-        </li>
+                </li>
 
-        `;
-            let imageBlocks = document.getElementById('block-image');
-            imageBlocks.insertAdjacentHTML('beforeend', imageItem);
+                `;
+            channelBlocks.insertAdjacentHTML('beforeend', imageItem);
 
 		
         }
-    };
+    }
 
     // It‘s always good to credit your work:
     let renderUser = (user, container) => { // You can have multiple arguments for a function!
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
             data.contents.reverse().forEach((block) => {
                 // console.log(block) // The data for a single block
-                renderBlock(block); // Pass the single block data to the render function
+                renderImageBlock(block); // Pass the single block data to the render function
             });
 
             // Also display the owner and collaborators:
