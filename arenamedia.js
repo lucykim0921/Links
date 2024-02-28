@@ -43,27 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // To start, a shared `ul` where we’ll insert all our blocks
         let channelBlocks = document.getElementById('channel-blocks');
 
-        // Links!
-        if (block.class == 'Link') {
-            let linkItem =
-                `
-            <li class="block-media block-link">
-                <p><em></em></p>
-                <picture>
-                    <img src="${ block.image.large.url }">
-                </picture>
-                <h3>${ block.title }</h3>
-                <h4>${ block.description_html }</h4>
-                <p><a href="${ block.source.url }">See the original ↗</a></p>
-            </li>
-            `;
-
-            channelBlocks.insertAdjacentHTML('beforeend', linkItem);
-        }
-
-
-        // Text!
-        else if (block.class == 'Text') {
+           // Text!
+           if (block.class == 'Text') {
             // …up to you!
             console.log(block)
 
@@ -82,6 +63,37 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             channelBlocks.insertAdjacentHTML('beforeend', textItem);
         }
+
+
+        // Links!
+        // Links!
+        // Links!
+        else if (block.class == 'Link') {
+            console.log(block)
+            let linkItem =
+                `
+            <li class="block-media block-link">
+
+                <figure class="container">
+                    <p><em></em></p>
+                    <picture>
+                        <img src="${ block.image.large.url }">
+                    </picture>
+                </figure>
+
+                <div class="link-content">
+                        <h3>${ block.title }</h3>
+                        <h4>${ block.description_html }</h4>
+                        <p><a href="${ block.source.url }">See the original ↗</a></p>
+                </div>
+              
+                <button>click!</button>
+            </li>
+            `;
+
+            channelBlocks.insertAdjacentHTML('beforeend', linkItem);
+        }
+
 
         // Uploaded (not linked) media…
         else if (block.class == 'Attachment') {
@@ -103,17 +115,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Uploaded PDFs!
+            // Uploaded PDFs!
+            // Uploaded PDFs!
             else if (attachment.includes('pdf')) {
                 // …up to you!
                 let pdfItem =
                     `
                 <li class="block-media block-pdf">
-                    <p><em></em></p>
-                    <picture>
-                        <img src="${ block.image.original.url }">
-                    </picture>
-					<h3>${ block.title }</h3>
-                    <p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
+                    <figure class="container">
+                        <p><em></em></p>
+                        <picture>
+                            <img src="${ block.image.original.url }">
+                        </picture>
+                    </figure>
+
+                    <figure class="content">
+                        <div class="content-media">
+                            <picture>
+                             <img src="${ block.image.original.url }">
+                            </picture>
+                        </div>
+
+                        <div class="content-text">
+                            <h3>${ block.title }</h3>
+                            <h4>${ block.description_html }</h4>
+                            <p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
+                        </div>
+                    </figure>
                 </li>
                 `;
                 channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
@@ -139,23 +167,35 @@ document.addEventListener('DOMContentLoaded', function() {
             let embed = block.embed.type;
 
             // Linked video!
+            // Linked video!
+            // Linked video!
             if (embed.includes('video')) {
                 // …still up to you, but here’s an example `iframe` element:
                 let linkedVideoItem =
                     `
                 <li class="block-media block-linked-video">
-                    <p><em></em></p>
-                    ${ block.embed.html }
-                    <h3>${ block.title }</h3>
+                    <figure class="container">
+                        <p><em></em></p>
+                        ${ block.embed.html }
+                    </figure>
+
+                    <figure class="content">
+                        <div class="content-media>
+                            ${ block.embed.html }
+                        </div>
+                        <div class="content-text">
+                            <h3>${ block.title }</h3>
+                        </div>
+                    </figure>
                 </li>
                 `;
                 channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem);
                 // More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
             }
 
-            
-
         }
+
+
     };
 
     // It‘s always good to credit your work:
@@ -170,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         container.insertAdjacentHTML('beforeend', userAddress);
     };
+
 
     // Now that we have said what we can do, go get the data:
     fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -189,7 +230,27 @@ document.addEventListener('DOMContentLoaded', function() {
             data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers));
             renderUser(data.user, channelUsers);
 
-            // Enable draggable functionality after rendering blocks
-            // enableDraggable();
+
+            // Set up our variables.
+                let switchButtons = document.querySelectorAll('.block-link button')
+                    switchButtons.forEach((switchButton) => {
+                        switchButton.onclick = () => {
+                            let parentBlock = switchButton.parentElement
+                            parentBlock.classList.toggle('active')
+                        };
+                    
+            })
+
+           
         });
+
+       
+
+     
+
+
 });
+
+
+
+       

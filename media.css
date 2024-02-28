@@ -102,20 +102,40 @@ header p {
 }
 
 
-/* .block-media {
-    background-color: rgba(255, 255, 255, 0.3);
-    max-width: 450px;
-    height: 480px;
-    border: 5px inset rgb(192, 118, 34);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-} */
+.block-media {
+    cursor: pointer;
+}
 
     /* text block */
     .block-text {
         padding: 30px;
         font-size: 23px;
     }
+
+.link-content {
+    display: none;
+    /* position: fixed; */
+    background-color: blue;
+}
+
+.block-media.block-link {
+    overflow: visible;
+    
+}
+
+.block-link.active .link-content {
+    display: block;
+}
+
+button {
+    background-color: rgba(221, 10, 10, 0.5);
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
 
 
 /* users */
