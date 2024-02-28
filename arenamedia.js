@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="link-content">
                         <h3>${ block.title }</h3>
                         <h4>${ block.description_html }</h4>
-                        <h5><a href="${ block.source.url }">See the original ↗</a></h5>
+                        <h5><a href="${ block.source.url }">View more ↗</a></h5>
                 </div>
               
             </li>
@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 let pdfItem =
                     `
                 <li class="block-media block-pdf">
+
                     <figure class="container">
                         <p><em></em></p>
                         <picture>
@@ -130,19 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         </picture>
                     </figure>
 
-                    <figure class="content">
-                        <div class="content-media">
-                            <picture>
-                             <img src="${ block.image.original.url }">
-                            </picture>
-                        </div>
+                    <button></button>
 
-                        <div class="content-text">
+                        <div class="pdf-content">
                             <h3>${ block.title }</h3>
-                            <h4>${ block.description_html }</h4>
-                            <p><a href="${block.attachment.url}" target="_blank">See the original ↗</a></p>
+                            <h5><a href="${block.attachment.url}" target="_blank">View more ↗</h5></p>
                         </div>
-                    </figure>
                 </li>
                 `;
                 channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
@@ -171,22 +165,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Linked video!
             // Linked video!
             if (embed.includes('video')) {
+        
                 // …still up to you, but here’s an example `iframe` element:
                 let linkedVideoItem =
                     `
                 <li class="block-media block-linked-video">
-                    <figure class="container">
+                    <figure class="container video-container">
                         <p><em></em></p>
                         ${ block.embed.html }
-                    </figure>
-
-                    <figure class="content">
-                        <div class="content-media>
-                            ${ block.embed.html }
-                        </div>
-                        <div class="content-text">
-                            <h3>${ block.title }</h3>
-                        </div>
                     </figure>
                 </li>
                 `;
@@ -239,8 +225,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             let parentBlock = switchButton.parentElement
                             parentBlock.classList.toggle('active')
                         };
-                    
             })
+
+                    switchButtons = document.querySelectorAll('.block-pdf button')
+                    switchButtons.forEach((switchButton) => {
+                        switchButton.onclick = () => {
+                            let parentBlock = switchButton.parentElement
+                            parentBlock.classList.toggle('active')
+                        };
+            })
+
+            
 
            
         });

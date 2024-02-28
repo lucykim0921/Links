@@ -21,12 +21,28 @@ body, header, section, ul, li, footer, address {
 }
 
 
+
 a { color: brown; 
     transition: transform 0.3 ease-in-out;
 }
 
 a:hover {
     transform: scale(1.2); 
+}
+
+h1 {
+    display: none;
+}
+
+h2 {
+    font-family: var(--description-font);
+    font-style: italic;
+    font-size: 50px;
+    color: rgb(255, 170, 0);
+    width: 70%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
 }
 
 h5 a {
@@ -82,6 +98,10 @@ header {
     border-radius: 50%; 
 }
 
+#channel-link {
+    padding: 30px;
+}
+
 figcaption {
     display: none;
 }
@@ -118,7 +138,7 @@ header p {
 #channel-blocks > li {
     background-color: rgba(255, 255, 255, 0.3);
     max-width: 450px;
-    height: 400px;
+    height: 360px;
     border: 5px inset rgb(192, 118, 34);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -139,7 +159,7 @@ header p {
         font-size: 23px;
     }
 
-.link-content {
+.link-content, .pdf-content {
     display: none;
     position: absolute;
     top: 0;
@@ -152,17 +172,17 @@ header p {
     padding: 20px;
 }
 
-.block-media.block-link {
+.block-media.block-link, .block-media.block-pdf  {
     position: relative;
     
 }
 
-.block-link.active .link-content {
+.block-link.active .link-content, .block-pdf.active .pdf-content {
     display: block;
     z-index: 3000;
 }
 
-.block-link.active .link-content h5 {
+.block-link.active .link-content h5, .block-pdf.active .pdf-content h5 {
     width: 60%;
 }
 
@@ -170,6 +190,16 @@ header p {
 .block-link.active .link-content h5:hover {
     transform: scale(1.1); 
 }
+
+.block-pdf.active .link-content h5:hover {
+    transform: scale(1.1); 
+}
+
+.video-container {
+    min-height: 400px;
+    width: auto;
+}
+
 
 button {
     position: absolute;
@@ -220,7 +250,7 @@ footer {
 
 
 
-@media (min-width: 640px) {
+@media (min-width: 665px) {
 
     #channel-blocks {
     grid-template-columns: repeat(2, 1fr);
@@ -240,7 +270,7 @@ footer {
     }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1160px) {
 
     #channel-blocks {
         grid-template-columns: repeat(3, 1fr);
@@ -257,15 +287,15 @@ footer {
 
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1500px) {
 
 
         h3 {
-            font-size: 32px;
+            font-size: 28px;
         }
     
         h4 {
-            font-size: 27px;
+            font-size: 24px;
         }
 
 }

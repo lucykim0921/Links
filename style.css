@@ -79,6 +79,17 @@ header {
     border-radius: 50%; 
 }
 
+#channel-link {
+    font-size: 20px;
+    margin: auto;
+    font-family: var(--description-font);
+}
+
+#channel-link:hover {
+    transform: scale(1.2);
+}
+
+
 figcaption {
     display: none;
 }
@@ -169,45 +180,6 @@ header p {
 
 .block-image-description {
     display: none;
-}
-
-
-
-/* Explore section */
-
-.explore {
-    height: 100vh;
-    padding: 40px 0;
-    align-items: center;
-    justify-content: center;
-    grid-gap: 0;
-}
-
-.explore h2 {
-    font-family: var(--description-font);
-    font-size: 35px;
-    font-style: italic;
-    color: white;
-    padding: 0 20px;
-    text-align: center;
-    margin: auto;
-}
-
-
-.explore h4 {
-    font-size: 30px;
-    font-family: var(--description-font);
-    color: #444036;
-    text-align: center;
-    padding: 0 20px;
-    font-style: italic;
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-}
-
-.explore a {
-    margin: auto;
 }
 
 
