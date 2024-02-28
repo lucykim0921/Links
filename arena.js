@@ -23,6 +23,23 @@ document.addEventListener('DOMContentLoaded', function() {
         channelLink.href = `https://www.are.na/channel/${channelSlug}`;
     };
 
+
+        // Function to toggle the visibility of block-image-description
+        function toggleDescription() {
+        let description = this.parentElement.querySelector('.block-image-description');
+        description.classList.toggle('active');
+    }
+
+        // Function to attach event listeners to images
+        function attachImageListeners() {
+        let images = document.querySelectorAll('#block-image img');
+        images.forEach(image => {
+            image.addEventListener('click', toggleDescription);
+        });
+    }
+
+
+
     // Then our big function for specific-block-type rendering:
     let renderImageBlock = (block) => {
         // To start, a shared `ul` where we’ll insert all our blocks
@@ -31,22 +48,26 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Rendering image block...")
 
         // Images!
+        // Images!
+        // Images!
+        // Images!
         if (block.class == 'Image') {
             console.log("image block found:", block);
             console.log(block.description_html);
             let imageItem =
                 `
                 <li class="block-image">
-                    <p><em></em></p>
                     <img src="${block.image.original.url}" alt="Image">
-                    <figcaption>${block.title}</figcaption>
 
                     <div class="block-image-description">
-                        ${block.description_html}
+                        <h3>${block.title}</h3>
                     </div>
                 </li>
                 `;
             channelBlocks.insertAdjacentHTML('beforeend', imageItem);
+
+            let image = channelBlocks.lastElementChild.querySelector('img');
+            image.addEventListener('click', toggleDescription);
         }
     };
 

@@ -38,6 +38,11 @@ p {
     max-width: 50ch; 
 }
 
+h3 {
+    font-family: var(--description-font);
+    font-size: 12px;
+}
+
 
 
 /* header page */
@@ -136,6 +141,7 @@ header p {
     width: 100vw;
     /* margin: 500px; */
     margin: auto;
+    margin-bottom: 200px;
     position: relative;
     /*  */
     /* display: grid; */
@@ -156,9 +162,10 @@ header p {
 .block-image {
     height: auto; /* Maintain aspect ratio */
     cursor: move;
-    position: absolute;
-    display: block;
+    position: relative;
+    display: flex;
     width: 16vw;
+    min-width: 80px;
     justify-content: space-between;
     /* overflow: hidden; */
     /* max-width: 100%;
@@ -169,8 +176,21 @@ header p {
     width: 100%;
     height: auto;
     max-width: 230px;
-    opacity: 0.5;
+    opacity: 0.7;
     transition: transform 0.5s ease, opacity 0.3s ease;
+    display: block;
+}
+
+.block-image-description {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+    padding: 10px; /* Adjust padding as needed */
+    z-index: 1; /* Ensure it's above the image */
+    transform: translate(50%, 50%); /* Center the description slightly to the right */
+    transform-origin: bottom right;
+
 }
 
 .block-image img:hover {
@@ -180,6 +200,11 @@ header p {
 
 .block-image-description {
     display: none;
+}
+
+.block-image-description.active {
+    display: block;
+    margin-top: 10%;
 }
 
 
@@ -205,27 +230,50 @@ header p {
     scale: 1.1;
 }
 
-/* footer */
+
 footer {
-    /* position: fixed;
-    bottom: 0; */
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
-
-
-
-
-
-
-
-
-@media (min-width: 1080px) {
-
-
- 
+.footer-container {
+    display: grid;
+    gap: 30px;
+    margin: auto;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 665px) {
+    #image-container {
+        margin-bottom: 250px;
+    }
 
+    h3 {
+        font-size: 17px;
+    }
+
+   
+}
+
+@media (min-width: 1160px) {
+    #image-container {
+        margin-bottom: 300px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1500px) {
+
+    #image-container {
+        margin-bottom: 350px;
+    }
+  
+    h3 {
+        font-size: 23px;
+    }
+}
 
 }

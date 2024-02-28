@@ -81,12 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     </picture>
                 </figure>
 
-                <button></button>
+                <button class="open"></button>
 
                 <div class="link-content">
                         <h3>${ block.title }</h3>
                         <h4>${ block.description_html }</h4>
                         <h5><a href="${ block.source.url }">View more ↗</a></h5>
+                        <button class="close">Close</button>
                 </div>
               
             </li>
@@ -131,11 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         </picture>
                     </figure>
 
-                    <button></button>
+                    <button class="open"></button>
 
                         <div class="pdf-content">
                             <h3>${ block.title }</h3>
-                            <h5><a href="${block.attachment.url}" target="_blank">View more ↗</h5></p>
+                            <h5><a href="${block.attachment.url}" target="_blank">View more ↗</h5>
+                            <button class="close">Close</button>
                         </div>
                 </li>
                 `;
@@ -219,22 +221,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             // Set up our variables.
-                let switchButtons = document.querySelectorAll('.block-link button')
-                    switchButtons.forEach((switchButton) => {
-                        switchButton.onclick = () => {
-                            let parentBlock = switchButton.parentElement
+                let openButtonsLink = document.querySelectorAll('.block-link button.open')
+                    openButtonsLink.forEach((openButton) => {
+                        openButton.onclick = () => {
+                            let parentBlock = openButton.parentElement
                             parentBlock.classList.toggle('active')
                         };
             })
 
-                    switchButtons = document.querySelectorAll('.block-pdf button')
-                    switchButtons.forEach((switchButton) => {
-                        switchButton.onclick = () => {
-                            let parentBlock = switchButton.parentElement
+                let closeButtonsLink = document.querySelectorAll('.block-link button.close')
+                        closeButtonsLink.forEach((closeButton) => {
+                            closeButton.onclick = () => {
+                                let parentBlock = closeButton.parentElement.parentElement
+                                parentBlock.classList.toggle('active')
+                            };
+                })
+
+                let openButtonsPdf = document.querySelectorAll('.block-pdf button.open')
+                    openButtonsPdf.forEach((openButton) => {
+                        openButton.onclick = () => {
+                            let parentBlock = openButton.parentElement
                             parentBlock.classList.toggle('active')
                         };
             })
 
+                let closeButtonsPdf = document.querySelectorAll('.block-pdf button.close')
+                        closeButtonsPdf.forEach((closeButton) => {
+                            closeButton.onclick = () => {
+                                let parentBlock = closeButton.parentElement.parentElement
+                                parentBlock.classList.toggle('active')
+                            };
+                })
+
+               
             
 
            

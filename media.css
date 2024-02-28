@@ -20,6 +20,9 @@ body, header, section, ul, li, footer, address {
 	/* gap: 30px; */
 }
 
+#landing-page-nav a[href="index.html"] {
+    color: rgb(120, 120, 120);
+}
 
 
 a { color: brown; 
@@ -177,12 +180,17 @@ header p {
     
 }
 
-.block-link.active .link-content, .block-pdf.active .pdf-content {
+.block-link.active .link-content, 
+.block-pdf.active .pdf-content {
     display: block;
     z-index: 3000;
+    /*  */
+    justify-content: block-end; 
+    align-items: block-end; /
 }
 
-.block-link.active .link-content h5, .block-pdf.active .pdf-content h5 {
+.block-link.active .link-content h5, 
+.block-pdf.active .pdf-content h5 {
     width: 60%;
 }
 
@@ -191,7 +199,7 @@ header p {
     transform: scale(1.1); 
 }
 
-.block-pdf.active .link-content h5:hover {
+.block-pdf.active .pdf-content h5:hover {
     transform: scale(1.1); 
 }
 
@@ -212,6 +220,13 @@ button {
     width: 100%;
     height: 100%;
     z-index: 2000;
+}
+
+.close {
+    color: transparent;
+    width: 100%;
+    height: 25%;
+    z-index: 100000;
 }
 
 
