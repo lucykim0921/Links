@@ -145,8 +145,8 @@ header p {
 }
 
 #landing-page-nav a[href="media.html"] {
-    color: rgb(58, 100, 239);
-    text-shadow: 0 0 10px rgb(255, 255, 255);
+    /* color: rgb(58, 100, 239);
+    text-shadow: 0 0 10px rgb(255, 255, 255); */
 }
 
 
