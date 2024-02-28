@@ -41,6 +41,7 @@ p {
 h3 {
     font-family: var(--description-font);
     font-size: 12px;
+    color: white;
 }
 
 
@@ -79,7 +80,7 @@ header {
     font-size: 50px;
     margin: auto;
     color: #4f3e34;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 5px rgba(247, 186, 80, 0.702);
     padding: 10px 30px;
     border-radius: 50%; 
 }
@@ -185,7 +186,7 @@ header p {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust opacity as needed */
     padding: 10px; /* Adjust padding as needed */
     z-index: 1; /* Ensure it's above the image */
     transform: translate(50%, 50%); /* Center the description slightly to the right */
@@ -276,4 +277,3 @@ footer {
     }
 }
 
-}
