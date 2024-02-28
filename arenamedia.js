@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="link-content">
                         <h3>${ block.title }</h3>
                         <h4>${ block.description_html }</h4>
-                        <p><a href="${ block.source.url }">See the original ↗</a></p>
+                        <h5><a href="${ block.source.url }">See the original ↗</a></h5>
                 </div>
               
             </li>
