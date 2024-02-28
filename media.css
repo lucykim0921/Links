@@ -144,6 +144,7 @@ header p {
     border: 5px inset rgb(192, 118, 34);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    position: relative;
 }
 
 .container img {
@@ -176,13 +177,12 @@ header p {
     background-color: rgba(0, 0, 0, 0.7);
     margin: auto;
     padding: 20px;
-    transition: opacity 1s ease;
     opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .block-media.block-link, .block-media.block-pdf  {
     position: relative;
-    
 }
 
 .block-link.active .link-content, 
