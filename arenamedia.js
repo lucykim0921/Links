@@ -81,13 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     </picture>
                 </figure>
 
+                <button></button>
+
                 <div class="link-content">
                         <h3>${ block.title }</h3>
                         <h4>${ block.description_html }</h4>
                         <p><a href="${ block.source.url }">See the original ↗</a></p>
                 </div>
               
-                <button>click!</button>
             </li>
             `;
 
