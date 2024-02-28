@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // …up to you!
             console.log(block)
 
-            let wordLimit = 45;
+            let wordLimit = 300;
             let truncatedContent = block.content_html.split(' ').slice(0, wordLimit).join(' ');
             if (block.content_html.split(' ').length > wordLimit) {
                 truncatedContent += '...';

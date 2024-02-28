@@ -101,9 +101,6 @@ header {
     border-radius: 50%; 
 }
 
-#channel-link {
-    padding: 30px;
-}
 
 figcaption {
     display: none;
@@ -161,6 +158,10 @@ header p {
         padding: 30px;
         font-size: 23px;
     }
+
+#channel-blocks li.block-text {
+    overflow: auto;
+}
 
 .link-content, .pdf-content {
     display: none;
@@ -292,6 +293,11 @@ footer {
         padding: 70px;
         }
 
+        h2 {
+            font-size: 60px;
+            width: 50%;
+        }
+
         h3 {
             font-size: 26px;
         }
@@ -304,6 +310,7 @@ footer {
 
 @media (min-width: 1500px) {
 
+       
 
         h3 {
             font-size: 28px;
