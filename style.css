@@ -9,10 +9,36 @@ html {
 
 
 body {
-    background-color: #e8ddcc;
-    background-position: top;
     cursor:
 		url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>💫</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
+
+.background-color {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    filter: blur(1px);
+    width: 100vw;
+    height: 100vh;
+    z-index: -100000;
+    background: linear-gradient(45deg, rgb(244, 228, 205), rgb(172, 132, 77), rgb(242, 188, 141), rgb(203, 153, 82), rgb(255, 237, 223), rgb(172, 132, 77));
+    background-size: 300% 300%;
+    animation: color 15s linear infinite;
+}
+
+@keyframes color {
+    0% {
+        background-position: 0 85%;
+    }
+
+    50% {
+        background-position: 100% 20%;
+    }
+
+    100% {
+        background-position: 0% 85%;
+    }
 }
 
 body, header, section, ul, li, footer, address {
@@ -21,8 +47,9 @@ body, header, section, ul, li, footer, address {
 }
 
 
-a { color: brown; 
-    transition: transform 0.3 ease-in-out;
+a { 
+    color: white;
+    text-shadow: 0 0 10px rgb(20, 87, 255);
 }
 
 a:hover {
@@ -47,25 +74,6 @@ h3 {
 
 
 /* header page */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: -100;
-    opacity: 20%;
-    filter: blur (1px);
-    overflow: hidden;
-}
-
-.background-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
-    /* filter: hue-rotate(95deg) saturate(100%); */
-}
 
 header {
     margin: auto;
@@ -80,22 +88,24 @@ header {
     font-size: 50px;
     margin: auto;
     color: #4f3e34;
-    box-shadow: 0 0 10px 5px rgba(247, 186, 80, 0.702);
-    padding: 10px 30px;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.702), inset 0 0 10px 5px rgba(255, 255, 255, 0.702);
+    padding: 30px 50px;
     border-radius: 50%; 
 }
 
 #channel-link {
-    font-size: 20px;
+    font-size: 35px;
     margin: auto;
     font-family: var(--description-font);
-    padding:  15px 20px;
-    box-shadow: 0 10px 10px -5px rgba(247, 186, 80, 0.702);
+    padding:  10px 20px;
+    text-shadow: 0 0 10px rgba(255, 210, 210, 0.702);
+    /* border-radius: 50%; */
 }
 
 #channel-link:hover {
+    color: white;
     transform: scale(1.2);
-    box-shadow: 0 10px 10px -5px rgba(119, 68, 9, 0.702);
+    text-shadow: 0 0 10px rgb(20, 87, 255);
 }
 
 
@@ -105,7 +115,7 @@ figcaption {
 
 #channel-description {
     color: white;
-    font-size: 35px;
+    font-size: 45px;
     font-family: var(--description-font);
     font-weight: 400;
     font-style: italic;
@@ -135,7 +145,8 @@ header p {
 }
 
 #landing-page-nav a[href="media.html"] {
-    color: rgb(120, 120, 120);
+    color: rgb(58, 100, 239);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 
@@ -256,6 +267,14 @@ footer {
         font-size: 17px;
     }
 
+    #channel-description {
+        font-size: 55px;
+    }
+
+    #channel-title {
+        font-size: 65px;
+    }
+
    
 }
 
@@ -266,6 +285,14 @@ footer {
 
     h3 {
         font-size: 20px;
+    }
+
+    #channel-description {
+        font-size: 65px;
+    }
+
+    #channel-title {
+        font-size: 75px;
     }
 }
 

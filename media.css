@@ -21,12 +21,13 @@ body, header, section, ul, li, footer, address {
 }
 
 #landing-page-nav a[href="index.html"] {
-    color: rgb(120, 120, 120);
+    color: rgb(58, 100, 239);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 
-a { color: brown; 
-    transition: transform 0.3 ease-in-out;
+a { color: white;
+    text-shadow: 0 0 10px rgb(20, 87, 255);
 }
 
 a:hover {
@@ -41,11 +42,12 @@ h2 {
     font-family: var(--description-font);
     font-style: italic;
     font-size: 50px;
-    color: rgb(255, 170, 0);
+    color: rgb(59, 47, 22);
     width: 70%;
     margin: auto;
     justify-content: center;
     text-align: center;
+    text-shadow: 0 0 10px #fff;
 }
 
 h5 a {
@@ -174,6 +176,8 @@ header p {
     background-color: rgba(0, 0, 0, 0.7);
     margin: auto;
     padding: 20px;
+    transition: opacity 1s ease;
+    opacity: 0;
 }
 
 .block-media.block-link, .block-media.block-pdf  {
@@ -187,7 +191,8 @@ header p {
     z-index: 3000;
     /*  */
     justify-content: block-end; 
-    align-items: block-end; /
+    align-items: block-end; 
+    opacity: 1;
 }
 
 .block-link.active .link-content h5, 
